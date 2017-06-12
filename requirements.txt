@@ -1,1 +1,2 @@
 google-api-python-client-py3
+python-instagram
