@@ -1,17 +1,12 @@
-from skimage import data
-import matplotlib.pyplot as plt
-from skimage.io import imread
-image = imread('../data/target5.jpg')
-# image = data.chelsea()
-
 import photomosaic as pm
+from skimage.io import imread, imsave
 
-# Generate a collection of solid-color square images.
-# pm.rainbow_of_squares('pool/')
+target = '../data/target6.jpg'
+image = imread(target)
+dims_list = [(25, 25,), (50, 50,), (100, 100,), (125, 125,), (150, 150,), (200, 200,), (250, 250,), (500, 500,)]
 
 # Analyze the collection (the "pool") of images.
-pool = pm.make_pool('../data/pics/*.jpg')
-mos = pm.basic_mosaic(image, pool, (200, 200), depth=3)
-
-from skimage.io import imsave
-imsave('mosaic.png', mos)
+pool = pm.make_pool('../data/cap/*.jpg')
+for dims in dims_list:
+    mos = pm.basic_mosaic(image, pool, dims, depth=1)
+    imsave('mosaic_{}x{}_{}.png'.format(dims[0], dims[1], target.split('/')[-1]), mos)
