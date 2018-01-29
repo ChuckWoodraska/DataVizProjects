@@ -27,4 +27,4 @@ Data Viz: https://flewloon.com/dataviz/poopmap
 
 Blog: http://www.chuckwoodraska.com/2015/01/manifestation-of-drinking.html
 
-Data Viz: 
+Data Viz: https://flewloon.com/dataviz/mod
