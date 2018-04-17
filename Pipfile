@@ -1,0 +1,17 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[dev-packages]
+
+
+
+[packages]
+
+"google-api-python-client-py3" = "*"
+python-instagram = "*"
+chuckpyutils = {git = "https://github.com/ChuckWoodraska/ChuckPyUtils.git", editable = true}
+requests = "*"
