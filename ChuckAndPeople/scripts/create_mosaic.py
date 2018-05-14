@@ -139,11 +139,13 @@ def progressive_pic_gen():
 def main_pic_thumbnail_gen():
     size = 256, 256
     target = '../data/main/main.jpg'
-    target_filename = target.split('/')[-1][:-4]
     im = Image.open(target)
     im.thumbnail(size)
-    im.save('../data/main/{}.thumbnail'.format(target_filename), 'PNG')
-
+    im.save('../data/main/main.thumbnail', 'PNG')
+    target = '../data/main/main.png'
+    im = Image.open(target)
+    im.thumbnail(size)
+    im.save('../data/main/mosaic.thumbnail', 'PNG')
 
 def cap_pics_thumbnail_gen():
     size = 256, 256
