@@ -1,4 +1,0 @@
-google-api-python-client-py3
-python-instagram
-requests
--e git+https://github.com/ChuckWoodraska/ChuckPyUtils.git#egg=chuck_pyutils

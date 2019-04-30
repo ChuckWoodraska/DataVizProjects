@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Progess</title>
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static', filename='css/calmage.css') }}"/>
+</head>
+<body>
+
+<div class="month-calendar">
+    <div style="grid-column: 1 / 7; height: 90px">
+        <h1>January 2019</h1>
+    </div>
+    <div style="grid-column: 1; height: 90px">
+        <h1>S</h1>
+    </div>
+    <div style="grid-column: 2; height: 90px">
+        <h1>M</h1>
+    </div>
+    <div style="grid-column: 3; height: 90px">
+        <h1>T</h1>
+    </div>
+    <div style="grid-column: 4; height: 90px">
+        <h1>W</h1>
+    </div>
+    <div style="grid-column: 5; height: 90px">
+        <h1>T</h1>
+    </div>
+    <div style="grid-column: 6; height: 90px">
+        <h1>F</h1>
+    </div>
+    <div style="grid-column: 7; height: 90px">
+        <h1>S</h1>
+    </div>
+    {% for index in jan_days %}
+        <div style="grid-column: {{ index }};">
+            <img src="https://css-tricks.com/wp-content/uploads/2018/11/justify-items-stretch.svg" height="128"
+                 width="128">
+        </div>
+    {% endfor %}
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+</body>
+</html>
