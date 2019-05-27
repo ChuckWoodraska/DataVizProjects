@@ -9,8 +9,8 @@
 <body>
 
 <div class="month-calendar">
-    <div style="grid-column: 1 / 7; height: 90px">
-        <h1>January 2019</h1>
+    <div style="grid-column: 2 / 7; height: 90px">
+        <h1>{{ month}} 2018</h1>
     </div>
     <div style="grid-column: 1; height: 90px">
         <h1>S</h1>
@@ -33,10 +33,11 @@
     <div style="grid-column: 7; height: 90px">
         <h1>S</h1>
     </div>
-    {% for index in jan_days %}
-        <div style="grid-column: {{ index }};">
-            <img src="https://css-tricks.com/wp-content/uploads/2018/11/justify-items-stretch.svg" height="128"
-                 width="128">
+    {% for day in days %}
+        <div style="grid-column: {{ day['index'] }};">
+            <a href="{{ day['untappd_url'] }}">
+            <img src="{{ url_for('static', filename=day['img_src']) }}" height="133"
+                 width="100" title="{{ day['alt_text'] }}"></a>
         </div>
     {% endfor %}
 </div>

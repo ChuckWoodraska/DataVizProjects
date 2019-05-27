@@ -5,3 +5,20 @@
 
 # Config files
 *.ini
+
+# ChuckAndPeople Picture Data
+ChuckAndPeople/data/cap
+ChuckAndPeople/data/cap_pics
+ChuckAndPeople/data/cap_pics_thumbnails
+ChuckAndPeople/data/main
+ChuckAndPeople/data/mosaic_dom_color
+ChuckAndPeople/data/mosaic_json
+ChuckAndPeople/data/mosaic_pics
+ChuckAndPeople/data/mosaic_thumbnails
+ChuckAndPeople/data/pics
+ChuckAndPeople/data/progressive_json
+ChuckAndPeople/data/progressive_pics
+ChuckAndPeople/data/progressive_pool
+ChuckAndPeople/data/progressive_thumbnails
+
+ChuckRatesBeer/data/pics
