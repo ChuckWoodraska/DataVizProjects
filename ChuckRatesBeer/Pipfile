@@ -1,0 +1,21 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+name = "pypi"
+verify_ssl = true
+
+[packages]
+
+requests = "*"
+chuck-pyutils = {git = "https://github.com/ChuckWoodraska/ChuckPyUtils.git", editable = true}
+pandas = "*"
+
+[dev-packages]
+
+
+[requires]
+
+python_version = "3.6"
+
+
+
