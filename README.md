@@ -5,6 +5,10 @@ visualization.
 # Chuck Rates Beer
 2018 Project to taste and rate a different beer everyday.
 
+Blog: http://www.chuckwoodraska.com/2018/05/chuck-rates-beer.html
+
+Data Viz: https://flewloon.com/dataviz/crb
+
 # Chuck and People
 2017 Project to take a picture with a different person/group of people everyday.
 

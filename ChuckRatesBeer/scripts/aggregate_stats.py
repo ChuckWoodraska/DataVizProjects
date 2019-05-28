@@ -1,3 +1,5 @@
+import panadas
+
 import requests
 import json
 
@@ -9,3 +11,13 @@ with open("../data/chuckratesbeer.json", "r") as data:
         if r.status_code == 200:
             with open("../data/pics_raw/Day{}.jpg".format(index+1), 'wb') as f:
                 f.write(r.content)
+
+# Bucket ratings
+
+# Find highest rated
+
+# Find lowest rated
+
+# Count beer type most
+
+# Count beer type least
