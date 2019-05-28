@@ -1,0 +1,10 @@
+<table class="table table-bordered table-responsive table-striped" id="beerSearchDataTable">
+    {% for beer in beer_list %}
+    <tr id="{{ beer['id'] }}" class="beerRow">
+        <td>Brewery: {{ beer['brewery_name'] }} Beer: {{ beer['beer_name']}}</td>
+        <td>
+            <button class="btn selectBtn">Select</button>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
