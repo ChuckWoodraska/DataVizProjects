@@ -1,4 +1,4 @@
-from ChuckRatesBeer.scripts.untappd import Untappd
+
 from chuck_pyutils import core as utils
 import requests
 # import pandas as pd
@@ -31,9 +31,10 @@ def get_search_beers(query):
     kwargs = {"client_id": config['UNTAPPD']['CLIENT_ID'], "client_secret": config['UNTAPPD']['CLIENT_SECRET'],
               "q": query}
     result = requests.get(API_EP, params=kwargs).json()
+    new_list = []
     for item in result["response"]["beers"]["items"]:
-        print(item["beer"]["bid"], item["beer"]["beer_name"], item["brewery"]["brewery_name"])
-    print()
+        new_list.append({"bid": item["beer"]["bid"], "beer_name": item["beer"]["beer_name"], "brewery_name": item["brewery"]["brewery_name"]})
+    print(new_list)
 
 get_search_beers("Guinness")
 
