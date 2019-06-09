@@ -27,6 +27,7 @@ config = utils.read_config(utils.get_file_path(__file__, 'config.ini'))
 #     print(result)
 
 def get_search_beers(query):
+
     API_EP = 'https://api.untappd.com/v4/search/beer'
     kwargs = {"client_id": config['UNTAPPD']['CLIENT_ID'], "client_secret": config['UNTAPPD']['CLIENT_SECRET'],
               "q": query}
