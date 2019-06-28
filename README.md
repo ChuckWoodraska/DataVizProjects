@@ -5,7 +5,7 @@ visualization.
 # Chuck Rates Beer
 2018 Project to taste and rate a different beer everyday.
 
-Blog: http://www.chuckwoodraska.com/2018/05/chuck-rates-beer.html
+Blog: http://www.chuckwoodraska.com/2018/06/chuck-rates-beer.html
 
 Data Viz: https://flewloon.com/dataviz/crb
 
