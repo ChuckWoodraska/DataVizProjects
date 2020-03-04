@@ -5,6 +5,7 @@
 
 # Config files
 *.ini
+*.joblib
 
 # ChuckAndPeople Picture Data
 ChuckAndPeople/data/cap
