@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guinness Money</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+<div>
+    <fieldset>
+        <legend>Container Type</legend>
+        <label for="bottle">Bottle</label>
+        <input type="checkbox" name="container_type" id="bottle" value="bottle"><br>
+        <label for="can">Can</label>
+        <input type="checkbox" name="container_type" id="can" value="can"><br>
+        <label for="draft">Draft</label>
+        <input type="checkbox" name="container_type" id="draft" value="draft"><br>
+    </fieldset>
+</div>
+<div>
+    <fieldset>
+        <legend>Container Size</legend>
+        <label for="bottle">Bottle</label>
+        <input type="checkbox" name="container_type" id="bottle" value="bottle"><br>
+        <label for="can">Can</label>
+        <input type="checkbox" name="container_type" id="can" value="can"><br>
+        <label for="draft">Draft</label>
+        <input type="checkbox" name="container_type" id="draft" value="draft"><br>
+
+    </fieldset>
+</div>
+<div>
+    <fieldset>
+        <legend>Bar or Retail</legend>
+        <input type="checkbox" name="buy_location" id="bar" value="bar"><label for="bar">Bar</label><br>
+        <input type="checkbox" name="buy_location" id="retail" value="retail"><label for="retail">Retail</label><br>
+    </fieldset>
+</div>
+<div>
+    <fieldset>
+        <legend>Months</legend>
+        <label for="jan">January</label>
+        <input type="checkbox" name="months" id="jan" value="1"><br>
+        <label for="feb">February</label>
+        <input type="checkbox" name="months" id="feb" value="2"><br>
+        <label for="mar">March</label>
+        <input type="checkbox" name="months" id="mar"  value="3"><br>
+        <label for="apr">April</label>
+        <input type="checkbox" name="months" id="apr"  value="4"><br>
+        <label for="may">May</label>
+        <input type="checkbox" name="months" id="may"  value="5"><br>
+        <label for="june">June</label>
+        <input type="checkbox" name="months" id="june"  value="6"><br>
+        <label for="july">July/label>
+        <input type="checkbox" name="months" id="july"  value="7"><br>
+        <label for="aug">August</label>
+        <input type="checkbox" name="months" id="aug"  value="8"><br>
+        <label for="sept">September</label>
+        <input type="checkbox" name="months" id="sept"  value="9"><br>
+        <label for="oct">October</label>
+        <input type="checkbox" name="months" id="oct" value="10"><br>
+        <label for="nov">November</label>
+        <input type="checkbox" name="months" id="nov"  value="11"><br>
+        <label for="dec">December</label>
+        <input type="checkbox" name="months" id="dec"  value="12"><br>
+    </fieldset>
+</div>
+<div>
+    Average Price {{ average_price }}
+</div>
+<div>
+    Total Price {{ total_price }}
+</div>
+<div>
+    Average Ounces {{ average_ounces }}
+</div>
+<div>
+    Total Ounces {{ total_ounces }}
+</div>
+</body>
+</html>

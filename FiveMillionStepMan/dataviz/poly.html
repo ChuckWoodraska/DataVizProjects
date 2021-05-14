@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple Polylines</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="capture">Capture</button>
+<div id="map1"  style="width:100%; height:100%;"></div>
+
+
+    <script src="http://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script>
+function saveAs(uri, filename) {
+
+    var link = document.createElement('a');
+
+    if (typeof link.download === 'string') {
+
+        link.href = uri;
+        link.download = filename;
+
+        //Firefox requires the link to be in the body
+        document.body.appendChild(link);
+
+        //simulate click
+        link.click();
+
+        //remove the link when done
+        document.body.removeChild(link);
+
+    } else {
+
+        window.open(uri);
+
+    }
+}
+      // This example creates a 2-pixel-wide red polyline showing the path of
+      // the first trans-Pacific flight between Oakland, CA, and Brisbane,
+      // Australia which was made by Charles Kingsford Smith.
+
+      function initMap() {
+          var map1 = new google.maps.Map(document.getElementById('map1'), {
+              zoom: 15,
+              center: {'lat': 32.7973885, 'lng': -80.0120624},
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+          });
+
+          var flightPlanCoordinates = [{"lat": 32.7969515, "lng": -80.0118759}, {
+              "lat": 32.7969315,
+              "lng": -80.0118939
+          }, {"lat": 32.7969225, "lng": -80.0119009}, {"lat": 32.7969115, "lng": -80.0119052}, {
+              "lat": 32.7969024,
+              "lng": -80.0119053
+          }, {"lat": 32.7968858, "lng": -80.0119058}, {"lat": 32.7968757, "lng": -80.0119113}, {
+              "lat": 32.79687,
+              "lng": -80.0119224
+          }, {"lat": 32.7968688, "lng": -80.0119387}, {"lat": 32.7968642, "lng": -80.0119817}, {
+              "lat": 32.7968515,
+              "lng": -80.0120028
+          }, {"lat": 32.796786, "lng": -80.0120275}];
+          var flightPath = new google.maps.Polyline({
+              path: flightPlanCoordinates,
+              geodesic: true,
+              strokeColor: '#FF0000',
+              strokeOpacity: 1.0,
+              strokeWeight: 5
+          });
+
+          flightPath.setMap(map1);
+      }
+    </script>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAa_XGP80k8HKxvQihvUkkH2kmErRJrxs&callback=initMap">
+    </script>
+  <script>
+            document.getElementById("capture").addEventListener("click", function() {
+// html2canvas(document.querySelector('#map'),
+// {
+//   useCORS: true,
+//   onrendered: function(canvas)
+//   {
+//         console.log(canvas);
+//         saveAs(canvas.toDataURL(), 'file-name.png');
+//   }
+// });
+    html2canvas(document.querySelector('#map'), {useCORS: true}).then(function(canvas) {
+
+        console.log(canvas);
+        saveAs(canvas.toDataURL(), 'file-name.png');
+    });
+      })
+  </script>
+  </body>
+</html>
