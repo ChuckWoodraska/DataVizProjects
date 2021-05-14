@@ -26,7 +26,7 @@ Data Viz: https://flewloon.com/dataviz/fmsm
 # Chuck Rates Beer
 2018 Project to taste and rate a different beer everyday.
 
-Blog: http://www.chuckwoodraska.com/2018/05/chuck-rates-beer.html
+Blog: https://www.chuckwoodraska.com/2019/06/chuck-rates-beer.html
 
 Data Viz: https://flewloon.com/dataviz/crb
 
@@ -40,20 +40,20 @@ Data Viz: https://flewloon.com/dataviz/cap
 # Chuck Chugs Guinness
 2016 Project to video and time me chugging a Guinness everyday.
 
-Blog: http://www.chuckwoodraska.com/2017/05/chuck-chugs-guinness-for-year.html
+Blog: https://www.chuckwoodraska.com/2017/05/chuck-chugs-guinness-for-year.html
 
 Data Viz: https://flewloon.com/dataviz/ccg
 
 # Poop Map
 2015 Project to map everywhere I pooped.
 
-Blog: http://www.chuckwoodraska.com/2016/05/mapping-poop.html
+Blog: https://www.chuckwoodraska.com/2016/05/mapping-poop.html
 
 Data Viz: https://flewloon.com/dataviz/poopmap
 
 # Manifestation of Drinking
 2014 Project to track every alcoholic beverage I drank.
 
-Blog: http://www.chuckwoodraska.com/2015/01/manifestation-of-drinking.html
+Blog: https://www.chuckwoodraska.com/2015/01/manifestation-of-drinking.html
 
 Data Viz: https://flewloon.com/dataviz/mod
