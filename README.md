@@ -2,19 +2,21 @@
 Repo of various data projects I've worked on. Will usually contain data and scripts to transform that data into a
 visualization.
 
+Data Viz: https://flewloon.com/dataviz
+
 # Guinness Money
 2020 Project to track how much I spend on Guinness.
 
 Blog: http://www.chuckwoodraska.com/2020/05/5-million-step-man.html
 
-Data Viz: https://flewloon.com/dataviz/fmsm
+Data Viz: https://flewloon.com/dataviz/gmoney
 
 # Taco Tuesday
 2020 Project to try a different taco every week and rate it.
 
 Blog: http://www.chuckwoodraska.com/2020/05/5-million-step-man.html
 
-Data Viz: https://flewloon.com/dataviz/fmsm
+Data Viz: https://flewloon.com/dataviz/tacos
 
 # Five Million Step Man
 2019 Project to track my steps.
