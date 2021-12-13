@@ -7,14 +7,14 @@ Data Viz: https://flewloon.com/dataviz
 # Guinness Money
 2020 Project to track how much I spend on Guinness.
 
-Blog: http://www.chuckwoodraska.com/2020/05/5-million-step-man.html
+Blog: https://www.chuckwoodraska.com/2021/12/guinness-money.html
 
 Data Viz: https://flewloon.com/dataviz/gmoney
 
 # Taco Tuesday
 2020 Project to try a different taco every week and rate it.
 
-Blog: http://www.chuckwoodraska.com/2020/05/5-million-step-man.html
+Blog: https://www.chuckwoodraska.com/2021/12/taco-tuesday.html
 
 Data Viz: https://flewloon.com/dataviz/tacos
 
