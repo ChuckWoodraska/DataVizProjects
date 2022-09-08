@@ -32,9 +32,15 @@ def get_search_beers(query):
     kwargs = {"client_id": config['UNTAPPD']['CLIENT_ID'], "client_secret": config['UNTAPPD']['CLIENT_SECRET'],
               "q": query}
     result = requests.get(API_EP, params=kwargs).json()
-    new_list = []
-    for item in result["response"]["beers"]["items"]:
-        new_list.append({"bid": item["beer"]["bid"], "beer_name": item["beer"]["beer_name"], "brewery_name": item["brewery"]["brewery_name"]})
+    new_list = [
+        {
+            "bid": item["beer"]["bid"],
+            "beer_name": item["beer"]["beer_name"],
+            "brewery_name": item["brewery"]["brewery_name"],
+        }
+        for item in result["response"]["beers"]["items"]
+    ]
+
     print(new_list)
 
 get_search_beers("Guinness")

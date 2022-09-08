@@ -95,7 +95,7 @@ def dominant_color(target, target_filename):
     fig = plt.figure()
     plt.axis("off")
     plt.imshow(bar)
-    fig.savefig('../data/mosaic_dom_color/{}.png'.format(target_filename))
+    fig.savefig(f'../data/mosaic_dom_color/{target_filename}.png')
 
 
 def main_pic_gen():
@@ -109,9 +109,15 @@ def main_pic_gen():
     pool = pm.make_pool('../data/cap_pics/*.jpg')
     target_filename = target.split('/')[-1][:-4]
     for dims in dims_list:
-        mos = pm.basic_mosaic(image, pool, dims, depth=1,
-                              matches_fp='mosaic_{}x{}_{}.json'.format(dims[0], dims[1], target_filename))
-        imsave('mosaic_{}x{}_{}.png'.format(dims[0], dims[1], target_filename), mos)
+        mos = pm.basic_mosaic(
+            image,
+            pool,
+            dims,
+            depth=1,
+            matches_fp=f'mosaic_{dims[0]}x{dims[1]}_{target_filename}.json',
+        )
+
+        imsave(f'mosaic_{dims[0]}x{dims[1]}_{target_filename}.png', mos)
 
     # instagram-scraper chuckwoodraska --include-location --media-metadata --comments
 
@@ -121,19 +127,41 @@ def all_pic_gen():
     pool = pm.make_pool('../data/cap_pics/*.jpg')
     for target in target_list:
         target_filename = target.split('/')[-1][:-4]
-        dominant_color('../data/cap_pics/{}'.format(target), target_filename)
-        mos = pm.basic_mosaic(imread('../data/cap_pics/{}'.format(target)), pool, (100, 100,), depth=1,
-                              matches_fp='../data/mosaic_json/{}.json'.format(target_filename))
-        imsave('../data/mosaic_pics/{}.png'.format(target_filename), mos)
+        dominant_color(f'../data/cap_pics/{target}', target_filename)
+        mos = pm.basic_mosaic(
+            imread(f'../data/cap_pics/{target}'),
+            pool,
+            (
+                100,
+                100,
+            ),
+            depth=1,
+            matches_fp=f'../data/mosaic_json/{target_filename}.json',
+        )
+
+        imsave(f'../data/mosaic_pics/{target_filename}.png', mos)
 
 
 def progressive_pic_gen():
     for x in range(1, 366):
-        shutil.copy('../data/cap_pics/Day{}.jpg'.format(x), '../data/progressive_pool/Day{}.jpg'.format(x))
+        shutil.copy(
+            f'../data/cap_pics/Day{x}.jpg',
+            f'../data/progressive_pool/Day{x}.jpg',
+        )
+
         pool = pm.make_pool('../data/progressive_pool/*.jpg')
-        mos = pm.basic_mosaic(imread('../data/cap_pics/Day{}.jpg'.format(x)), pool, (100, 100,), depth=1,
-                              matches_fp='../data/progressive_json/Day{}.json'.format(x))
-        imsave('../data/progressive_pics/Day{}.png'.format(x), mos)
+        mos = pm.basic_mosaic(
+            imread(f'../data/cap_pics/Day{x}.jpg'),
+            pool,
+            (
+                100,
+                100,
+            ),
+            depth=1,
+            matches_fp=f'../data/progressive_json/Day{x}.json',
+        )
+
+        imsave(f'../data/progressive_pics/Day{x}.png', mos)
 
 
 def main_pic_thumbnail_gen():
@@ -153,7 +181,7 @@ def cap_pics_thumbnail_gen():
         target_filename = target.split('/')[-1][:-4]
         im = Image.open(target)
         im.thumbnail(size)
-        im.save('../data/cap_pics_thumbnails/{}.thumbnail'.format(target_filename), 'PNG')
+        im.save(f'../data/cap_pics_thumbnails/{target_filename}.thumbnail', 'PNG')
 
 
 def all_pics_thumbnail_gen():
@@ -162,7 +190,7 @@ def all_pics_thumbnail_gen():
         target_filename = target.split('/')[-1][:-4]
         im = Image.open(target)
         im.thumbnail(size)
-        im.save('../data/mosaic_thumbnails/{}.thumbnail'.format(target_filename), 'PNG')
+        im.save(f'../data/mosaic_thumbnails/{target_filename}.thumbnail', 'PNG')
 
 
 def progressive_thumbnail_gen():
@@ -171,7 +199,7 @@ def progressive_thumbnail_gen():
         target_filename = target.split('/')[-1][:-4]
         im = Image.open(target)
         im.thumbnail(size)
-        im.save('../data/progressive_thumbnails/{}.thumbnail'.format(target_filename), 'PNG')
+        im.save(f'../data/progressive_thumbnails/{target_filename}.thumbnail', 'PNG')
 
 
 main_pic_gen()

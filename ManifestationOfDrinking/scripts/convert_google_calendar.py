@@ -31,7 +31,7 @@ for row in input_file:
                 total += int(drink_count_list[0])
                 monthly_drink_dict[month][drink_name[:-1]] += int(drink_count_list[0])
         else:
-            print(drink_count_list[1])
+            print(drink_name)
     output_list.append({"Date": date_str, "Title": row['Title'], "Total": total})
 print("Total Guinness: {guinness}\n" \
       "Total Beers: {beer}\n" \

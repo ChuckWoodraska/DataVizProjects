@@ -118,7 +118,7 @@ def main5():
         if len(result.position_values) <= 100:
             result.sv2 = result.position_values
         else:
-            result.sv2 = result.position_values[0::10]
+            result.sv2 = result.position_values[::10]
         session.commit()
 
 def main4():
@@ -165,16 +165,10 @@ def endo_main():
             datt = parse(date_path)
             print(datt)
             #     print(repr(datetime.datetime.utcfromtimestamp(datt.timestamp())))
-            tmp_ll_json = []
-            for ll in pv:
-                tmp_ll_json.append({"lat": ll[0], "lng": ll[1]})
+            tmp_ll_json = [{"lat": ll[0], "lng": ll[1]} for ll in pv]
             # # pass
-            total_distance = 0
-            for v in a.distance_values():
-                total_distance += v
-            total_duration = 0
-            for v in a.duration_values():
-                total_duration += v
+            total_distance = sum(a.distance_values())
+            total_duration = sum(a.duration_values())
             # # print([a.distance_values())
             new_cs = ChuckSteps()
             new_cs.duration = int(total_duration)
@@ -184,7 +178,7 @@ def endo_main():
             new_cs.start_long = pv[0][1]
             new_cs.end_lat = pv[-1][0]
             new_cs.end_long = pv[-1][1]
-            mid_pv = int(len(pv)/2)
+            mid_pv = len(pv) // 2
             new_cs.median_lat = pv[mid_pv][0]
             new_cs.median_long = pv[mid_pv][1]
             new_cs.route_name_id = None
@@ -193,10 +187,10 @@ def endo_main():
             if len(new_cs.position_values) <= 100:
                 new_cs.sv2 = new_cs.position_values
             else:
-                new_cs.sv2 = new_cs.position_values[0::10]
+                new_cs.sv2 = new_cs.position_values[::10]
             session.add(new_cs)
             session.commit()
-            # count += 1
+                    # count += 1
         else:
             print(path_in_str)
 
@@ -230,33 +224,31 @@ def main():
         #     datett = date_path.replace('_', ':')
         #     datt = parse(datett)
         #     print(repr(datetime.datetime.utcfromtimestamp(datt.timestamp())))
-            tmp_ll_json = []
-            for ll in pv:
-                tmp_ll_json.append({"lat": ll[0], "lng": ll[1]})
-            # # pass
-            # total_distance = 0
-            # for v in a.distance_values():
-            #     total_distance += v
-            # total_duration = 0
-            # for v in a.duration_values():
-            #     total_duration += v
-            # # print([a.distance_values())
-            # new_cs = ChuckSteps()
-            # new_cs.duration = int(total_duration)
-            # new_cs.distance = int(total_distance)
-            # new_cs.position_values = tmp_ll_json
-            # new_cs.start_lat = pv[0][0]
-            # new_cs.start_long = pv[0][1]
-            # new_cs.end_lat = pv[-1][0]
-            # new_cs.end_long = pv[-1][1]
-            # mid_pv = int(len(pv)/2)
-            # new_cs.median_lat = pv[mid_pv][0]
-            # new_cs.median_long = pv[mid_pv][1]
-            # new_cs.route_name_id = None
-            # new_cs.file_name = path_in_str
-            # session.add(new_cs)
-            # session.commit()
-            # count += 1
+            tmp_ll_json = [{"lat": ll[0], "lng": ll[1]} for ll in pv]
+                    # # pass
+                    # total_distance = 0
+                    # for v in a.distance_values():
+                    #     total_distance += v
+                    # total_duration = 0
+                    # for v in a.duration_values():
+                    #     total_duration += v
+                    # # print([a.distance_values())
+                    # new_cs = ChuckSteps()
+                    # new_cs.duration = int(total_duration)
+                    # new_cs.distance = int(total_distance)
+                    # new_cs.position_values = tmp_ll_json
+                    # new_cs.start_lat = pv[0][0]
+                    # new_cs.start_long = pv[0][1]
+                    # new_cs.end_lat = pv[-1][0]
+                    # new_cs.end_long = pv[-1][1]
+                    # mid_pv = int(len(pv)/2)
+                    # new_cs.median_lat = pv[mid_pv][0]
+                    # new_cs.median_long = pv[mid_pv][1]
+                    # new_cs.route_name_id = None
+                    # new_cs.file_name = path_in_str
+                    # session.add(new_cs)
+                    # session.commit()
+                    # count += 1
         else:
             print(path_in_str)
 

@@ -6,10 +6,7 @@ with open('../data/main/main.json', 'r') as a:
 
     for item in a:
         s = int(item[0].split('/')[-1][:-4].split('Day')[1])
-        if pic_dict.get(s):
-            pic_dict[s] = pic_dict[s] + 1
-        else:
-            pic_dict[s] = 1
+        pic_dict[s] = pic_dict[s] + 1 if pic_dict.get(s) else 1
 pic_dict['mosaic_tile_stat_str'] = '{}/365 ({:.2f}%)'.format(len(pic_dict), len(pic_dict)/365*100)
 for x in range(1, 366):
     if x not in pic_dict:
@@ -25,21 +22,14 @@ min_percent = 366
 min_percent_day = 0
 for x in range(1, 366):
     pic_dict = {}
-    with open('../data/mosaic_json/Day{}.json'.format(x), 'r') as a:
+    with open(f'../data/mosaic_json/Day{x}.json', 'r') as a:
         a = json.loads(a.read())
 
         for item in a:
             s = int(item[0].split('/')[-1][:-4].split('Day')[1])
-            if pic_dict.get(s):
-                pic_dict[s] = pic_dict[s] + 1
-            else:
-                pic_dict[s] = 1
-
+            pic_dict[s] = pic_dict[s] + 1 if pic_dict.get(s) else 1
             s = int(item[0].split('/')[-1][:-4].split('Day')[1])
-            if total_pic_dict.get(s):
-                total_pic_dict[s] = total_pic_dict[s] + 1
-            else:
-                total_pic_dict[s] = 1
+            total_pic_dict[s] = total_pic_dict[s] + 1 if total_pic_dict.get(s) else 1
     pic_dict['mosaic_tile_stat_str'] = '{}/365 ({:.2f}%)'.format(len(pic_dict), len(pic_dict) / 365 * 100)
     if len(pic_dict) > max_percent:
         max_percent = len(pic_dict)
@@ -67,15 +57,12 @@ with open('../data/mosaic_all.json', 'w') as a:
 progressive_dict = {}
 for x in range(1, 366):
     pic_dict = {}
-    with open('../data/progressive_json/Day{}.json'.format(x), 'r') as a:
+    with open(f'../data/progressive_json/Day{x}.json', 'r') as a:
         a = json.loads(a.read())
 
         for item in a:
             s = int(item[0].split('/')[-1][:-4].split('Day')[1])
-            if pic_dict.get(s):
-                pic_dict[s] = pic_dict[s] + 1
-            else:
-                pic_dict[s] = 1
+            pic_dict[s] = pic_dict[s] + 1 if pic_dict.get(s) else 1
     pic_dict['progressive_tile_stat_str'] = '{}/365 ({:.2f}%)'.format(len(pic_dict), len(pic_dict)/365*100)
     for y in range(1, 366):
         if y not in pic_dict:

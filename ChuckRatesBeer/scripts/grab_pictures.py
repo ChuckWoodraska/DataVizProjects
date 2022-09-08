@@ -7,5 +7,5 @@ with open("../data/chuckratesbeer.json", "r") as data:
         r = requests.get(beer.get("photo_url"))
 
         if r.status_code == 200:
-            with open("../data/pics_raw/Day{}.jpg".format(index+1), 'wb') as f:
+            with open(f"../data/pics_raw/Day{index + 1}.jpg", 'wb') as f:
                 f.write(r.content)

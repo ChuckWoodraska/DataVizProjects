@@ -47,17 +47,16 @@ def create_day_image_list(month, offset=0):
     c.setfirstweekday(calendar.SUNDAY)
     with open("../data/crb_by_day.json", "r") as f:
         json_data = json.loads(f.read())
-    lst = [
+    return [
         {
-            "img_src": "images/pics_raw/Day{}.jpg".format(x + offset),
+            "img_src": f"images/pics_raw/Day{x + offset}.jpg",
             "index": (y + 2) % 8,
-            "alt_text": "{}\n{} - {}".format(datetime(YEAR, month, x).strftime("%B %d, %Y"), json_data['Day{}'.format(x + offset)]['brewery_name'], json_data['Day{}'.format(x + offset)]['beer_name']),
-            "untappd_url": json_data['Day{}'.format(x + offset)]['untappd_url']
+            "alt_text": f"""{datetime(YEAR, month, x).strftime("%B %d, %Y")}\n{json_data[f'Day{x + offset}']['brewery_name']} - {json_data[f'Day{x + offset}']['beer_name']}""",
+            "untappd_url": json_data[f'Day{x + offset}']['untappd_url'],
         }
         for x, y in c.itermonthdays2(YEAR, month)
         if x
     ]
-    return lst
 
 
 if __name__ == "__main__":

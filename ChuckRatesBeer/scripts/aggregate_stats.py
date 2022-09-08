@@ -11,9 +11,8 @@ with pandas.option_context('display.max_rows', None, 'display.max_columns', None
     my_list = []
     e_dict = {}
     for k in my_dict:
-        my_list.append([str(k), my_dict[k]])
-        my_list.append(["{}_x".format(k), k])
-        e_dict[k] = "{}_x".format(k)
+        my_list.extend(([str(k), my_dict[k]], [f"{k}_x", k]))
+        e_dict[k] = f"{k}_x"
 
 
     print(json.dumps(e_dict))
@@ -54,21 +53,22 @@ with pandas.option_context('display.max_rows', None, 'display.max_columns', None
     df_by_spec_count = df.groupby('beer_type')['rating_score'].agg(['mean', 'count'])
     a = df_by_spec_count.sort_values(by='mean', ascending=False).to_dict()
     for index, i in enumerate(a.index):
-        print('{} <span style="float: right; margin-right: 350px;">{}</span><br />'.format(i, a[index]))
+        print(
+            f'{i} <span style="float: right; margin-right: 350px;">{a[index]}</span><br />'
+        )
+
     print(df_by_spec_count.sort_values(by='mean', ascending=False))
     #
     df_by_spec_count = df.groupby('Type')['rating_score'].agg(['mean', 'count'])
     print(df_by_spec_count.sort_values(by='mean', ascending=False).to_dict())
     my_dict = df_by_spec_count.to_dict()["count"]
-    my_list = []
-    for k in my_dict:
-        my_list.append([k, my_dict[k]])
+    my_list = [[k, my_dict[k]] for k in my_dict]
     print(my_list)
     e_dict = {}
     my_dict = df_by_spec_count.to_dict()["mean"]
     for k in my_dict:
-        my_list.append(["{}_x".format(k), round(my_dict[k], 2)])
-        e_dict[k] = "{}_x".format(k)
+        my_list.append([f"{k}_x", round(my_dict[k], 2)])
+        e_dict[k] = f"{k}_x"
     print(json.dumps(e_dict))
     print(json.dumps(my_list))
 

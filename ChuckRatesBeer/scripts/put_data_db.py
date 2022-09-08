@@ -30,7 +30,7 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 with open("../data/chuckratesbeer.json", "r") as data:
-    for index, beer in enumerate(json.loads(data.read())):
+    for beer in json.loads(data.read()):
         crb = ChuckRatesBeers()
         crb.bid = beer["bid"]
         crb.beer_name = beer["beer_name"]
