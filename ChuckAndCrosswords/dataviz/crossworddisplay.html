@@ -1,0 +1,135 @@
+<html lang="en"><!-- This page of sample code is intended to demonstrate how to use the JSON puzzle format described at www.xwordinfo.com.
+It can be freely used but please credit Jim Horne and xwordinfo.com and let me know if you end up using it.
+Email info {at} xwordinfo.com  --><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sample 2 - show puzzle using JSONP and jQuery</title>
+    <style>
+        body { font-family:Tahoma, Helvetica, Sans-Serif; background-color:#f6f6f6; font-size:14px; }
+        h2 { color:#00008B; }
+        a { color:#0c519f; text-decoration:none; }
+        a:hover { color:#cc0000; text-decoration:underline; }
+        .links { margin-bottom:20px; font-size:12px; }
+        .links a { margin-left: 4px; margin-right: 4px; }
+        #puzNotepad { background-color: #ffffe0; max-width:800px; padding:4px; border:1px solid #808080; margin-bottom:8px; display:none; }
+        #puzTable { border-collapse:collapse; border-spacing: 0; }
+        #puzTable td { width:26px;  text-align:center; font-size:12px; border:1px solid #000000; background-color:White; padding: 0; }
+        #puzTable .black { background-color:Black; }
+        #puzTable .circle { background-color:yellow; }
+        #puzTable15 { border-collapse:collapse; border-spacing: 0; }
+        #puzTable15 td { width:26px;  text-align:center; font-size:12px; border:1px solid #000000; background-color:White; padding: 0; }
+        #puzTable15 .black { background-color:Black; }
+        #puzTable15 .circle { background-color:yellow; }
+        #puzTable30 { border-collapse:collapse; border-spacing: 0; }
+        #puzTable30 td { width:26px;  text-align:center; font-size:12px; border:1px solid #000000; background-color:White; padding: 0; }
+        #puzTable30 .black { background-color:Black; }
+        #puzTable30 .circle { background-color:yellow; }
+        .grid { font-size:8px; text-align:left; padding-left:1px; height:9px}
+        .letter { height:17px; vertical-align:baseline; font-weight:bold; }
+        .copy {  font-size:11px; color:#303030; font-style:italic; margin-top:2px; }
+        .clue { float:left; background-color:#ffffff; padding: 8px; border: 1px solid #00008B; margin: 20px 20px 20px 0; max-width:380px; font-size:12px; display:none; }
+        .cluehead { font-size:18px; background-color: #87CEFA; font-weight:bold; padding:4px; margin-bottom: 20px; border:1px solid #808080; text-align:center; letter-spacing:2px; }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<style>
+
+</style></head>
+
+<body>
+    <h2 id="puzTitle"></h2>
+    <p id="puzAuthor"></p>
+    <h6>full</h6>
+    <table id="puzTable"></table>
+    <h6>15</h6>
+    <table id="puzTable15"></table>
+    <h6>30</h6>
+    <table id="puzTable30"></table>
+
+    <div id="puzCopy" class="copy"></div>
+    <div class="clue"><div class="cluehead">Across</div><div id="across"></div></div>
+    <div class="clue"><div class="cluehead">Down</div><div id="down"></div></div>
+    <br style="clear:both">
+    <script>
+
+        //
+        // using JSONP and jQuery
+        //
+function main() {
+
+    $.getJSON("../data/01/02.json", function (data) {
+
+        var puzzle = data;
+
+        // Fill in text fields
+
+        $("#puzTitle").html(puzzle.title);
+        $("#puzAuthor").html("by " + puzzle.author);
+        $("#puzCopy").html("&copy; " + puzzle.copyright);
+
+        // Create the puzzle dynamically and fill in grid numbers and answers
+
+        var pt = document.getElementById("puzTable");
+        var pt15 = document.getElementById("puzTable15");
+        var pt30 = document.getElementById("puzTable30");
+        var n = 0;
+        var i;
+
+        var row, thisRow, thisRow15, thisRow30, col, cell, cell15, cell30, grid, val, val15, val30;
+
+        for (row = 0; row < puzzle.size.rows; row += 1) {
+            thisRow = pt.insertRow(row);
+            thisRow15 = pt15.insertRow(row);
+            thisRow30 = pt30.insertRow(row);
+            for (col = 0; col < puzzle.size.cols; col += 1) {
+                cell = thisRow.insertCell(col);
+                cell15 = thisRow15.insertCell(col);
+                cell30 = thisRow30.insertCell(col);
+                grid = puzzle.gridnums[n];
+                if (grid === 0) {                       // 0 means no grid number at this location
+                    grid = " ";
+                }
+                val = puzzle.grid[n];
+                val15 = puzzle.grid15[n];
+                val30 = puzzle.grid30[n];
+                if (val === ".") {
+                    cell.className = "black";
+                    cell15.className = "black";
+                    cell30.className = "black";
+                } else {
+                    cell.innerHTML = "<div class='grid'>" + grid + "</div>" + "<div class='letter'>" + val + "</div>";
+                    cell15.innerHTML = "<div class='grid'>" + grid + "</div>" + "<div class='letter'>" + val15 + "</div>";
+                    cell30.innerHTML = "<div class='grid'>" + grid + "</div>" + "<div class='letter'>" + val30 + "</div>";
+                    if (puzzle.circles && puzzle.circles[n] === 1) {
+                        cell.className = puzzle.shadecircles ? "shade" : "circle";
+                        cell15.className = puzzle.shadecircles ? "shade" : "circle";
+                        cell30.className = puzzle.shadecircles ? "shade" : "circle";
+                    }
+                }
+                n += 1;
+            }
+        }
+
+        if (puzzle.notepad) {
+            $("#puzNotepad").show().html("<b>Notepad:</b> " + puzzle.notepad);
+            var w = document.getElementById("puzTable").clientWidth;
+            document.getElementById("puzNotepad").style.width = (w - 10) + "px";
+        }
+
+        // Fill in clues
+
+        $(".clue").show();
+
+        for (i in puzzle.clues.across) {
+            $("#across").append(puzzle.clues.across[i] + "<br />");
+        }
+
+        for (i in puzzle.clues.down) {
+            $("#down").append(puzzle.clues.down[i] + "<br />");
+        }
+
+    });
+    // This function is called in response to either button click
+}
+main();
+    </script>
+</body></html>

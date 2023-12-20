@@ -4,6 +4,20 @@ visualization.
 
 Data Viz: https://flewloon.com/dataviz
 
+# Chuck's Bucks
+2022 to track how money travels.
+
+Blog: https://www.chuckwoodraska.com/2023/05/chucks-bucks.html
+
+Data Viz: https://flewloon.com/dataviz/chucksbucks
+
+# Crossword Craziness
+2021 Project to track how well I do in completing the NYT crossword for a year.
+
+Blog: https://www.chuckwoodraska.com/2021/12/guinness-money.html
+
+Data Viz: https://flewloon.com/dataviz/xwc
+
 # Guinness Money
 2020 Project to track how much I spend on Guinness.
 
