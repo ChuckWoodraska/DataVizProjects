@@ -4,8 +4,29 @@ visualization.
 
 Data Viz: https://flewloon.com/dataviz
 
+# ABC Restaurant challenge
+2024 Project go to a restaurant for each letter in the alphabet.
+
+Blog: 
+
+Data Viz: 
+
+# Chia Pet Chuck
+2024 Project to track beard and hair growth.
+
+Blog: 
+
+Data Viz: 
+
+# Deviled Eggs
+2023 Project to track cooking through a cookbook all about deviled eggs. The cookbook [D'lish Deviled Eggs](https://www.amazon.com/DLish-Deviled-Eggs-Collection-Creative/dp/1449427502).
+
+Blog: 
+
+Data Viz: 
+
 # Chuck's Bucks
-2022 to track how money travels.
+2022 Project to track how money travels.
 
 Blog: https://www.chuckwoodraska.com/2023/05/chucks-bucks.html
 
