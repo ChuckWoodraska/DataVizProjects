@@ -1,0 +1,14 @@
+[project]
+name = "ChuckAndPeople"
+version = "0.1.0"
+description = "Scripts and dataviz for the Chuck and People project, likely involving mosaics and image manipulation."
+requires-python = ">=3.7" # Assuming a common recent version
+dependencies = [
+  "photomosaic",
+  "scikit-image",
+  "scikit-learn",
+  "matplotlib",
+  "numpy",
+  "opencv-python",
+  "Pillow"
+]

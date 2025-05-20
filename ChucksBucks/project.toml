@@ -1,0 +1,8 @@
+[project]
+name = "ChucksBucks"
+version = "0.1.0"
+description = "Scripts for calculating stats related to 'bucks', possibly involving a database."
+requires-python = ">=3.7" # Assuming a common recent version
+dependencies = [
+  "sqlalchemy"
+]
