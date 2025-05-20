@@ -1,0 +1,8 @@
+[project]
+name = "DeviledEggs"
+version = "0.1.0"
+description = "Scripts related to deviled eggs, possibly image processing for them."
+requires-python = ">=3.7" # Assuming a common recent version
+dependencies = [
+  "Pillow==10.3.0"
+]

@@ -1,0 +1,11 @@
+[project]
+name = "ChuckRatesBeer"
+version = "0.1.0"
+description = "Application for rating beers, likely a Flask web app."
+requires-python = ">=3.6"
+dependencies = [
+  "flask",
+  "requests",
+  "chuck-pyutils @ git+https://github.com/ChuckWoodraska/ChuckPyUtils.git",
+  "pandas"
+]

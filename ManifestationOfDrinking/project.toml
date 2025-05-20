@@ -1,0 +1,8 @@
+[project]
+name = "ManifestationOfDrinking"
+version = "0.1.0"
+description = "Scripts for processing drinking data, possibly from Google Calendar exports."
+requires-python = ">=3.7" # Assuming a common recent version
+dependencies = [
+  # No external dependencies identified
+]

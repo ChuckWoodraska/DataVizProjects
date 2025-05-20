@@ -1,0 +1,10 @@
+[project]
+name = "FiveMillionStepMan"
+version = "0.1.0"
+description = "Project tracking steps, likely involving a database and web interface."
+requires-python = ">=3.6"
+dependencies = [
+  "sqlalchemy",
+  "flask",
+  "flask-sqlalchemy[sqla]"
+]

@@ -1,0 +1,8 @@
+[project]
+name = "GuinnessMoney"
+version = "0.1.0"
+description = "Scripts related to 'Guinness money', possibly for blog data processing using pandas."
+requires-python = ">=3.7" # Assuming a common recent version
+dependencies = [
+  "pandas"
+]
